@@ -1,0 +1,24 @@
+:root {
+    --primary-color: #FFDE00;
+    --secondary-color: #CC0000;
+    --text-color: #3B4CCA;
+    --font-weight-bold: 700;
+    --font-size-normal: 14px;
+    --font-family-normal: 'Rubik', sans-serif;
+  }
+  
+  body {
+      background-color: #f6efe7;
+      font-family: var(--font-family-normal);
+      color: var(--text-color);
+  }
+  
+  h1 {
+  
+      font-family: 'IBM Plex Serif', serif;
+      Font-size: 28;
+      font-weight: var(--font-weight-bold);
+      line-height: normal;
+      color: var(--primary-color);
+      text-align: center;
+  }
