@@ -18,7 +18,7 @@ let pokemonList = [
 ];
 
 // Define the height threshold for special Pokémon
-let specialHeight = 10; // You can pick your own value
+let specialHeight = 17; // You can pick your own value
 
 // Get the paragraph element by its id
 let paragraph = document.getElementById("pokemonInfo");
