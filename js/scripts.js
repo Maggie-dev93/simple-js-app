@@ -18,7 +18,7 @@ let pokemonList = [
 ];
 
 // Define the height threshold for special Pokémon
-let specialHeight = 10; // You can pick your own value
+let specialHeight = 17; // You can pick your own value
 
 // Iterate over the pokemonList array
 for (let i = 0; i < pokemonList.length; i++) {
