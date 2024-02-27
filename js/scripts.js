@@ -18,30 +18,35 @@ let pokemonList = [
 ];
 
 // Define the height threshold for special Pokémon
-let specialHeight = 17; // You can pick your own value
-
-// Get the paragraph element by its id
-let paragraph = document.getElementById("pokemonInfo");
+let specialHeight = 10; // You can pick your own value
 
 // Iterate over the pokemonList array
 for (let i = 0; i < pokemonList.length; i++) {
   let pokemon = pokemonList[i];
-  // Construct the string to display the Pokémon name and height
-  let output = pokemon.name + " (height: " + pokemon.height);
+  // Use document.write to display the Pokémon name on the website's DOM
+  document.write(pokemon.name + " (height: " + pokemon.height);
   
   // Check if the Pokémon's height is above the specialHeight threshold
   if (pokemon.height > specialHeight) {
-    output += " - Wow, that's big!";
+    document.write(" - Wow, that's big!");
   }
   
   // Add a line break for the next Pokémon
-  output += "<br>";
+  document.write("<br>");
   
-  // Append the output string to the paragraph element
-  paragraph.innerHTML += output;
-  
-  // Log the output to the console
-  console.log(output);
+  // Use console.log to log the output to the console
+  console.log(pokemon.name + " (height: " + pokemon.height);
 }
+
+  
+  
+
+
+
+
+
+  
+  
+  
 
   
