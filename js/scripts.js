@@ -24,7 +24,7 @@ let specialHeight = 10; // You can pick your own value
 for (let i = 0; i < pokemonList.length; i++) {
   let pokemon = pokemonList[i];
   // Use document.write to display the Pokémon name on the website's DOM
-  document.write(pokemon.name + " (height: " + pokemon.height);
+  document.write(pokemon.name + " height: " + pokemon.height);
   
   // Check if the Pokémon's height is above the specialHeight threshold
   if (pokemon.height > specialHeight) {
