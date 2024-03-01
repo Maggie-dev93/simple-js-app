@@ -1,32 +1,49 @@
-// Your pokemonList array
-let pokemonList = [
-  {
-    name: "Bulbasaur",
-    height: 7,
-    types: ["grass", "poison"]
-  },
-  {
-    name: "Charizard",
-    height: 17,
-    types: ["fire", "flying"]
-  },
-  {
-    name: "Pikachu",
-    height: 4,
-    types: ["electric"]
-  }
-];
+let pokemonRepository = (function() {
+  // Define pokemonList array inside the IIFE to avoid accidental global access
+  let pokemonList = [
+    {
+      name: "Bulbasaur",
+      height: 7,
+      types: ["grass", "poison"]
+    },
+    {
+      name: "Charizard",
+      height: 17,
+      types: ["fire", "flying"]
+    },
+    {
+      name: "Pikachu",
+      height: 4,
+      types: ["electric"]
+    }
+  ];
 
-// Define the height threshold for special Pokémon
-let specialHeight = 10; // You can pick your own value
+  // Define the height threshold for special Pokémon
+  let specialHeight = 10; // You can pick your own value
 
-// Iterate over the pokemonList array using forEach() function
-pokemonList.forEach(function(pokemon) {
+  // Return an object with public functions
+  return {
+    getAll: function() {
+      return pokemonList;
+    },
+    add: function(pokemon) {
+      // Check if the argument is an object and has required properties
+      if (typeof pokemon === 'object' && pokemon.hasOwnProperty('name') && pokemon.hasOwnProperty('height') && pokemon.hasOwnProperty('types')) {
+        pokemonList.push(pokemon);
+      } else {
+        console.error('Invalid Pokemon object. Expected { name: "Name", height: <number>, types: ["Type1", "Type2", ...] }');
+      }
+    }
+  };
+})();
+
+// Iterate over each Pokémon in the repository using forEach() loop
+pokemonRepository.getAll().forEach(function(pokemon) {
   // Use document.write to display the Pokémon name on the website's DOM
   document.write(pokemon.name + " (height: " + pokemon.height + ")");
   
   // Check if the Pokémon's height is above the specialHeight threshold
-  if (pokemon.height > specialHeight) {
+  if (pokemon.height > pokemonRepository.specialHeight) {
     document.write(" - Wow, that's big!");
   }
   
