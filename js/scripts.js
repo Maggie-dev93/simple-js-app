@@ -1,6 +1,6 @@
 let pokemonRepository = (function() {
   // Define pokemonList array inside the IIFE to avoid accidental global access
-  let pokemonList = [
+  let repository = [
     {
       name: "Bulbasaur",
       height: 7,
