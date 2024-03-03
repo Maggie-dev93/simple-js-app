@@ -17,7 +17,6 @@ let pokemonRepository = (function() {
       types: ["electric"]
     }
   ];
-
    function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -39,14 +38,8 @@ let pokemonRepository = (function() {
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button-class");
-     // Add event listener to the button
-  button.addEventListener('click', function() {
-    showDetails(pokemon);
-  });
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    // Append the button to the list item
-  listItem.appendChild(button);
   }
   return {
     add: add,
@@ -54,11 +47,8 @@ let pokemonRepository = (function() {
     addListItem: addListItem
   };
 })();
-
 pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
-
 console.log(pokemonRepository.getAll());
-
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
@@ -66,3 +56,23 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 function showDetails(pokemon) {
   console.log(pokemon);
 }
+function addListItem(pokemon) {
+  // Create a list item element
+  let listItem = document.createElement('li');
+
+  // Create a button element
+  let button = document.createElement('button');
+  button.innerText = pokemon.name;
+
+  // Add event listener to the button
+  button.addEventListener('click', function() {
+    showDetails(pokemon);
+  });
+
+  // Append the button to the list item
+  listItem.appendChild(button);
+
+  // Append the list item to the document body or another parent element
+  document.body.appendChild(listItem);
+}
+
