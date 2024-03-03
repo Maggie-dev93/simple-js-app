@@ -66,23 +66,3 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 function showDetails(pokemon) {
   console.log(pokemon);
 }
-function addListItem(pokemon) {
-  // Create a list item element
-  let listItem = document.createElement('li');
-
-  // Create a button element
-  let button = document.createElement('button');
-  button.innerText = pokemon.name;
-
-  // Add event listener to the button
-  button.addEventListener('click', function() {
-    showDetails(button.innertext);
-  });
-
-  // Append the button to the list item
-  listItem.appendChild(button);
-
-  // Append the list item to the document body or another parent element
-  document.body.appendChild(listItem);
-}
-
