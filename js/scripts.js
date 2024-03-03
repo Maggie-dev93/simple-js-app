@@ -70,7 +70,7 @@ function addListItem(pokemon) {
 
   // Add event listener to the button
   button.addEventListener('click', function() {
-    showDetails(pokemon);
+    showDetails(button.innertext);
   });
 
   // Append the button to the list item
