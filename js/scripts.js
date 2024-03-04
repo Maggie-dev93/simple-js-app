@@ -1,38 +1,21 @@
-let pokemonRepository = (function() {
-  // Define pokemonList array inside the IIFE to avoid accidental global access
-  let repository = [
-    {
-      name: "Bulbasaur",
-      height: 7,
-      types: ["grass", "poison"]
-    },
-    {
-      name: "Charizard",
-      height: 17,
-      types: ["fire", "flying"]
-    },
-    {
-      name: "Pikachu",
-      height: 4,
-      types: ["electric"]
-    }
-  ];
-   function add(pokemon) {
+let pokemonRepository = (function () {
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
+  function add(pokemon) {
     if (
       typeof pokemon === "object" &&
-      "name" in pokemon &&
-      "height" in pokemon &&
-      "types" in pokemon
+      "name" in pokemon
     ) {
-      repository.push(pokemon);
+      pokemonList.push(pokemon);
     } else {
       console.log("pokemon is not correct");
     }
   }
   function getAll() {
-    return repository;
+    return pokemonList;
   }
-  function addListItem(pokemon){
+  function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
@@ -40,39 +23,62 @@ let pokemonRepository = (function() {
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
+    button.addEventListener("click", function(event) {
+      showDetails(pokemon);
+    });
   }
+
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function () {
+      console.log(item);
+    });
+  }
+
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
-pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
-console.log(pokemonRepository.getAll());
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
-});
 
-function showDetails(pokemon) {
-  console.log(pokemon);
-}
-function addListItem(pokemon) {
-  // Create a list item element
-  let listItem = document.createElement('li');
 
-  // Create a button element
-  let button = document.createElement('button');
-  button.innerText = pokemon.name;
-
-  // Add event listener to the button
-  button.addEventListener('click', function() {
-    showDetails(pokemon);
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
-
-  // Append the button to the list item
-  listItem.appendChild(button);
-
-  // Append the list item to the document body or another parent element
-  document.body.appendChild(listItem);
-}
+});
 
