@@ -1,3 +1,12 @@
+<div id="modal-container">
+        <!-- <div class='modal'>
+          <button class='modal-close'>Close</button>
+          <h1>Modal title</h1>
+          <p>Modal text</p>       
+        </div> -->
+      </div>
+
+
 function showModal(name, height, imageUrl) {
   modalContainer.innerHTML = '';
   let modal = document.createElement('div');
