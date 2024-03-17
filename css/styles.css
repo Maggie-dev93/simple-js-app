@@ -1,96 +1,79 @@
 :root {
-    --primary-color: #CC0000;
-    --secondary-color: #FFDE00;
-    --text-color: #3B4CCA;
-    --font-weight-bold: 700;
-    --font-size-normal: 14px;
-    --font-family-normal: 'Rubik', sans-serif;
+  --primary-color: #c00;
+  --secondary-color: #ffde00;
+  --text-color: #3b4cca;
+  --font-weight-bold: 700;
+  --font-size-normal: 14px;
+  --font-family-normal: 'Rubik', sans-serif;
 }
-
-
 
 body {
-    background-color: #FFDE00;
-    font-family: var(--font-family-normal);
-    color: var(--text-color);
-    text-align: center;
+  background-color: #ffde00;
+  font-family: var(--font-family-normal);
+  color: var(--text-color);
+  text-align: center;
 }
-
-
 
 h1 {
-    font-family: 'IBM Plex Serif', serif;
-    Font-size: 28;
-    font-weight: var(--font-weight-bold);
-    line-height: normal;
-    color: var(--primary-color);
-    text-align: center;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 28;
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+  color: var(--primary-color);
+  text-align: center;
 }
 
-
-
 .pokemon-item {
-    width: 200px;
-    /* Set the width of each item */
-    height: 200px;
-    /* Set the height of each item */
-    margin-bottom: 20px;
-    /* Add margin between items */
+  width: 200px;
+
+  /* Set the width of each item */
+  height: 200px;
+
+  /* Set the height of each item */
+  margin-bottom: 20px;
+
+  /* Add margin between items */
 }
 
 .button-class {
-    background-color: #3B4CCA;
-    /* Green */
-    border: #B3A125;
-    color: #CC0000;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 8px;
-    /* Add margin to create space between buttons */
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: #3B4CCA;
-    color: white;
-    border: 4px solid #B3A125;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 8px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #3b4cca;
+  color: white;
+  border: 4px solid #b3a125;
 }
 
-
-
 .navbar-logo {
-    max-width: 60px; /* Adjust as needed */
-    margin-right: 10px; /* Adjust as needed */
-  }
-
+  max-width: 60px; /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
 
 /*
 Pokemon list styling.
 */
+
 ul {
-    padding: 0;
-  } 
-  
-  .list-group-item {
-    background-color: transparent;
-    border: none;
-  }
-  
-  /*.button-class {
-    background-color: #2d3250;
-    width: 200px;
-    height: 300px;
-    margin: 10px; 
-    border: 3px solid rgba(255, 255, 255, 0.7);
-    border-bottom: 10px solid rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
-  }*/
+  padding: 0;
+}
 
+.list-group-item {
+  background-color: transparent;
+  border: none;
+}
 
-.pokemon-list li {
-    margin-bottom: 10px;
-    /* You can add additional styling for list items */
-} */
+/* .button-class {
+  background-color: #2d3250;
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 10px solid rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  } */
